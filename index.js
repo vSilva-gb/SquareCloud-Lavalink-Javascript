@@ -1,6 +1,6 @@
 const os = require('os'),
     systemOS = os.platform(),
-    { readdirSync, mkdirSync, existsSync, unlinkSync, rename, appendFileSync, copyFile, copyFileSync, rmdir, rmdirSync} = require('fs'),
+    { mkdirSync, existsSync, unlinkSync, copyFile, rmdirSync} = require('fs'),
     { spawn, spawnSync } = require('child_process'),
     square = require('squarecloud-status'),
     config = require('./config.json');
