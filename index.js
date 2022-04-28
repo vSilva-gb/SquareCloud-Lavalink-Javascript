@@ -27,9 +27,9 @@ const run = async () => {
     }
 
     if (config['uninstall']) {
-        console.log('🔵Uninstalling...');
+        console.log('🔵 Uninstalling...');
         rmdirSync('./squareLava', { recursive: true });
-        console.log('🔵Uninstalled.');
+        console.log('🟢 Uninstalled.');
     }
 
     //baixa o Lavalink do site que esta em config.lavaLink verifica se o status é indiferente de 0 caso seja da um process exit e da um console.log.
