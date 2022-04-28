@@ -88,7 +88,6 @@ const run = async () => {
             return process.exit(1);
         }
         console.log('🟢 Lavalink has been successfully started.');
-    });
 
     //Verifica se a existe a pasta bot e verifica se dentro dela existe o arquivo index.js.
     console.log('🔵 Starting the bot.');
