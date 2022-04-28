@@ -1,6 +1,6 @@
 const os = require('os'),
     systemOS = os.platform(),
-    { readdirSync, mkdirSync, existsSync, unlinkSync, rename, appendFileSync, copyFile, copyFileSync} = require('fs'),
+    { readdirSync, mkdirSync, existsSync, unlinkSync, rename, appendFileSync, copyFile, copyFileSync, rmdir, rmdirSync} = require('fs'),
     { spawn, spawnSync } = require('child_process'),
     square = require('squarecloud-status'),
     config = require('./config.json');
@@ -15,12 +15,12 @@ const run = async () => {
     //apaga a pasta Lavalink e java
     if (existsSync('./Lavalink')) {
         console.log('apagado')
-        unlinkSync('./Lavalink');
+        rmdirSync('./Lavalink');
     }
 
     if (existsSync('./Java')) {
         console.log('apagado')
-        unlinkSync('./Java');
+        rmdirSync('./Java');
     }
     return
 
@@ -60,10 +60,9 @@ const run = async () => {
         console.log('🔴 Java download failed. (Check the console for more information)');
         return process.exit(1);
     }
-    console.log('🟢 Java downloaded.');
+    console.log('🟢 Java downloaded.\n🔵 Extracting Java...');
     
     //extrai o java.tar.gz para dentro da pasta java e apague o arquivo comprimido e use console.log para cada etapa.
-    console.log('🔵 Extracting Java...');
     if (!existsSync('./squareLava/Java')) {
         mkdirSync('./squareLava/Java');
     }
