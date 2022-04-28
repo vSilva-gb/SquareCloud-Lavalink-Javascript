@@ -29,10 +29,7 @@ const run = async () => {
 
     //baixa o Lavalink do site que esta em config.lavaLink verifica se o status é indiferente de 0 caso seja da um process exit e da um console.log.
     console.log('🔵 Downloading Lavalink...');
-    //Verifica se já tem a pasta do Lavalink.
-    if (!existsSync('./squareLava/Lavalink')) {
-        mkdirSync('./squareLava/Lavalink', { recursive: true });
-    }
+    mkdirSync('./squareLava/Lavalink', { recursive: true });
     //Faz o download do lavalink
     const downLava = spawnSync("wget", ['-c', '-O', "Lavalink.jar", config.lavalink], {encoding: "utf-8", cwd: "./squareLava"});
     //Se o status for 0, não aconteceu nenhum erro
@@ -44,6 +41,7 @@ const run = async () => {
 
     //baixa o java do site que está em config.javaLink verifica se o status é indiferente de 0 e extraia o arquivo.
     console.log(`🔵 Downloading Java ${config["openJDK"]["version"]}...`);
+    mkdirSync('./squareLava/Java', { recursive: true });
     const downJava = spawnSync('wget', [config.openJDK.link, '-O', 'java.tar.gz'], {encoding: 'utf-8', cwd: './squareLava/Java'});
     if (downJava.status !== 0) {
         console.log('🔴 Java download failed. (Check the console for more information)');
@@ -52,9 +50,6 @@ const run = async () => {
     console.log('🟢 Java downloaded.\n🔵 Extracting Java...');
     
     //extrai o java.tar.gz para dentro da pasta java e apague o arquivo comprimido e use console.log para cada etapa.
-    if (!existsSync('./squareLava/Java')) {
-        mkdirSync('./squareLava/Java');
-    }
     const extractJava = spawnSync('tar', ['-xvzf', 'java.tar.gz'], {encoding: 'utf8', cwd: './squareLava/Java'});
     if (extractJava.status !== 0) {
         console.log('🔴 Java extraction failed. (Check the console for more information)');
