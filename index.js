@@ -12,18 +12,6 @@ if (systemOS !== 'linux') {
 
 const run = async () => {
 
-    //apaga a pasta Lavalink e java
-    if (existsSync('./Lavalink')) {
-        console.log('apagado')
-        rmdirSync('./Lavalink', { recursive: true, force: true });
-    }
-
-    if (existsSync('./Java')) {
-        console.log('apagado')
-        rmdirSync('./Java', { recursive: true, force: true });
-    }
-    return
-
     //Verifica a ram disponivel da host.
     let ram = 0;
     try {
@@ -85,7 +73,7 @@ const run = async () => {
     //Inicia o lavalink, verifica se ocorreu algum erro e case ocorra o erro 127 apague a pasta do java e mate o processo.
     console.log('🔵 Starting Lavalink...');
     const urlJava = process.cwd() + `/squareLava/Java/jdk-${config.openJDK.version}/bin/java`;
-    const startLava = spawn(urlJava, ['-jar', 'Lavalink.jar'], {cwd: './squareLava/Lavalink'});
+    let startLava = spawn(urlJava, ['-jar', 'Lavalink.jar'], {cwd: './squareLava/Lavalink'});
     startLava.stdout.on('data', (data) => {
         console.log(`${data}`);
     });
@@ -113,6 +101,15 @@ const run = async () => {
         console.log('🔴 The main file in config.json was not found.');
         return process.exit(1);
     }
+
+    //Instala todas as dependências do bot.
+    console.log('🔵 Installing dependencies...');
+    const npm = spawnSync('npm', ['i'], { cwd: './bot', encoding: 'utf-8' });
+    if (npm.status !== 0) {
+        console.log('🔴 Dependencies installation failed. (Check the console for more information)');
+        return process.exit(1);
+    }
+
 }
 
 //crie uma função que cria um delay com tempo personalizado.
