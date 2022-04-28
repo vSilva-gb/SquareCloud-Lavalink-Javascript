@@ -51,7 +51,10 @@ const run = async () => {
         console.log(`🔵 Downloading Java ${config["openJDK"]["version"]}...`);
         mkdirSync('./squareLava/Java', { recursive: true });
         if (!existsSync('./squareLava/Lavalink/application.yml')) {
-            copyFile('./application.yml', './squareLava/Lavalink');
+            //copia o arquivo application.yml para dentro da pasta squareLava/Lavalink
+            copyFile('./application.yml', './squareLava/Lavalink/application.yml', (err) => {
+                if (err) throw err;
+            });
         }
         const downJava = spawnSync('wget', [config.openJDK.link, '-O', 'java.tar.gz'], {encoding: 'utf-8', cwd: './squareLava/Java'});
         if (downJava.status !== 0) {
