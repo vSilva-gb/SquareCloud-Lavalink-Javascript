@@ -101,6 +101,7 @@ const run = async () => {
     const npm = spawnSync('npm', ['i'], { cwd: './bot', encoding: 'utf-8' });
     if (npm.status !== 0) {
         console.log('🔴 Dependencies installation failed. (Check the console for more information)');
+        startLava.kill()
         return process.exit(1);
     };
     console.log('🟢 Dependencies installed.');
