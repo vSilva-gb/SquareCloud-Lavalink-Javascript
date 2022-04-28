@@ -74,7 +74,7 @@ const run = async () => {
     //Apague o arquivo do java comprimido e verifique se ocorreu algum erro.
     console.log('🔵 Deleting Java archive...');
     unlinkSync('java.tar.gz');
-    if (existsSync('java.tar.gz')) {
+    if (existsSync('./Java/java.tar.gz')) {
         console.log('🔴 Java archive deletion failed. (Check the console for more information)');
         return process.exit(1);
     }
