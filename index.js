@@ -128,7 +128,7 @@ const run = async () => {
       return process.exit(code);
     }
   });
-  await delay(10 * 2000);
+  await delay(20 * 1000);
   console.log("🟢 Lavalink has been successfully started.");
 
   //Checks if the bot folder exists and checks if the mainFile file configured in config.js exists inside it
