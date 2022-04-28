@@ -12,10 +12,6 @@ if (systemOS !== 'linux') {
 
 const run = async () => {
 
-    unlinkSync('package-lock.json')
-    unlinkSync('.gitattributes.txt')
-    return;
-
     //Verifica a ram disponivel da host.
     let ram = 0;
     try {
@@ -30,7 +26,6 @@ const run = async () => {
         console.log('🔴 RAM is less than 512MB. (The minimum recommended is 512MB)');
     }
     //Cria a pasta onde todos os arquivos necessárias para o lavalink ficarão.
-    mkdirSync('./squareLava', { recursive: true });
 
     //baixa o Lavalink do site que esta em config.lavaLink verifica se o status é indiferente de 0 caso seja da um process exit e da um console.log.
     console.log('🔵 Downloading Lavalink...');
