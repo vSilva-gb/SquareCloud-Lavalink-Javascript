@@ -78,13 +78,7 @@ const run = async () => {
     //Inicia o lavalink, verifica se ocorreu algum erro e case ocorra o erro 127 apague a pasta do java e mate o processo.
     console.log('🔵 Starting Lavalink...');
     const urlJava = process.cwd() + `/squareLava/Java/jdk-${config.openJDK.version}/bin/java`;
-    let startLava = spawn(urlJava, ['-jar', 'Lavalink.jar'], {cwd: './squareLava/Lavalink'});
-    startLava.stdout.on('data', (data) => {
-        console.log(`${data}`);
-    });
-    startLava.stderr.on('data', (data) => {
-        console.log(`${data}`);
-    });
+    let startLava = spawnSync(urlJava, ['-jar', 'Lavalink.jar'], {cwd: './squareLava/Lavalink'});
             
     //Verifique se ocorreu algum erro e case ocorra o erro 127 apague a pasta do java e mate o processo.
     startLava.on('exit', (code) => {
@@ -96,9 +90,6 @@ const run = async () => {
         }
         console.log('🟢 Lavalink has been successfully started.');
     });
-
-    //Delay para esperar o serviço do Lavalink iniciar.
-    await delay(20*1000);
 
     //Verifica se a existe a pasta bot e verifica se dentro dela existe o arquivo index.js.
     console.log('🔵 Starting the bot.');
@@ -129,12 +120,3 @@ const run = async () => {
     })
 }
 run();
-
-//crie uma função que cria um delay com tempo personalizado.
-const delay = (time) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, time);
-    });
-};
