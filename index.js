@@ -25,12 +25,13 @@ const run = async () => {
     if (ram < 512) {
         console.log('🔴 RAM is less than 512MB. (The minimum recommended is 512MB)');
     }
+    mkdirSync('./squareLava', { recursive: true });
 
     //baixa o Lavalink do site que esta em config.lavaLink verifica se o status é indiferente de 0 caso seja da um process exit e da um console.log.
     console.log('🔵 Downloading Lavalink...');
     //Verifica se já tem a pasta do Lavalink.
     if (!existsSync('./squareLava/Lavalink')) {
-        mkdirSync('./squareLava/Lavalink');
+        mkdirSync('./squareLava/Lavalink', { recursive: true });
     }
     //Faz o download do lavalink
     const downLava = spawnSync("wget", ['-c', '-O', "Lavalink.jar", config.lavalink], {encoding: "utf-8", cwd: "./squareLava"});
