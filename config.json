@@ -1,0 +1,14 @@
+{
+    "openJDK": {
+        "link": "https://download.java.net/openjdk/jdk16/ri/openjdk-16+36_linux-x64_bin.tar.gz",
+        "version" : 16
+    },
+    "lavalink": "https://ci.fredboat.com/repository/download/Lavalink_Build/9339:id/Lavalink.jar?guest=1",
+    
+    "MainFile": "index.js",
+
+    "LavalinkLogs" : "off",
+    
+    "uninstall" : false
+    
+}
