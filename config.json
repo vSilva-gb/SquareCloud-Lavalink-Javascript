@@ -5,9 +5,9 @@
     },
     "lavalink": "https://ci.fredboat.com/repository/download/Lavalink_Build/9339:id/Lavalink.jar?guest=1",
     
-    "MainFile": "index.js",
+    "mainFile": "index.js",
 
-    "LavalinkLogs" : "off",
+    "lavalinkLogs" : "off",
     
     "uninstall" : false
     
