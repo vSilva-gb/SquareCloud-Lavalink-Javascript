@@ -1,0 +1,7 @@
+{
+  "DESCRIPTION": "Aumente ou diminua o Volume.",
+  "USAGE": "volume <num%>",
+  "CURRENT": "🔊 O volume atual está em: **{{NUM}}%**.",
+  "UPDATED": "🔊 O volume atual agora é **{{NUM}}%**.",
+  "TOO_HIGH": "Forneça um número entre 0 a 100."
+}

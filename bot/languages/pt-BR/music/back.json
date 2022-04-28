@@ -1,0 +1,6 @@
+{
+  "DESCRIPTION": "Reproduz a música anterior da fila.",
+  "USAGE": "back",
+  "NO_PREV": "Não há nenhuma música anterior.",
+  "BACK_SKIPED": "Pulou para a música anterior."
+}

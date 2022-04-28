@@ -1,0 +1,7 @@
+{
+  "DESCRIPTION": "View a user's avatar.",
+  "USAGE": "avatar [user]",
+  "AVATAR_TITLE": "🖼 Avatar for {{USER}}",
+  "AVATAR_DESCRIPTION": "**Links:**",
+  "NO_BANNER": "**This user does not have a banner!**"
+}

@@ -1,0 +1,7 @@
+{
+  "DESCRIPTION": "Faça o bot se conectar em um canal de voz.",
+  "USAGE": "join",
+  "NO_VC": "Você não está em um canal de voz ao qual posso me conectar.",
+  "JOIN": "Eu me conectei com sucesso ao canal.",
+  "MOVED": "Mudado de canal com sucesso."
+}

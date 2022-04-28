@@ -1,0 +1,10 @@
+{
+  "DESCRIPTION": "Remove uma música da lista de reprodução.",
+  "USAGE": "remove <position> [position]",
+  "NAN": "Número Inválido.",
+  "PLAYING": "Cannot remove a song that is already playing. To skip the song type: `{{PREFIX}}skip`",
+  "MISSING": "Música não encontrada.",
+  "REMOVED": "Foi removido **{{TITLE}}** da lista de reprodução.",
+  "INVALID": "O valor inicial deve ser maior do que o final.",
+  "REMOVED_MULTI": "Foram removidas **{{NUM}}** músicas da lista de reprodução."
+}

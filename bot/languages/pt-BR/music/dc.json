@@ -1,0 +1,7 @@
+{
+  "DESCRIPTION": "Desconecta o bot do canal de voz ao qual está conectado.",
+  "USAGE": "dc",
+  "LEFT": "Eu me desconectei com sucesso do canal.",
+  "INACTIVE": "I left 🔉 **{{VC}}** because I was inactive for too long.",
+  "KICKED": "The queue has ended as I was kicked from the voice channel"
+}

@@ -1,0 +1,14 @@
+{
+  "INTRO": "Sou um bot multifuncional, feito para ajudá-lo com todos os seus problemas e necessidades do servidor.",
+  "INFO": "Estou online por {{UPTIME}}, em {{GUILDS}} servidores e {{USERS}} usuários com {{CMDS}} comandos.",
+  "PREFIX": "Meu prefixo neste servidor é: `{{PREFIX}}`.",
+  "LINKS": "Links úteis:",
+  "ADD": "[Adicionar ao servidor]({{INVITE}})",
+  "SUPPORT": "[Entrar no servidor de suporte]({{LINK}})",
+  "WEBSITE": "[Website]({{URL}})",
+  "GUILD_ONLY": "Esse comando só pode ser executado em um servidor.",
+  "COMMAND_COOLDOWN": "Calma aí! Você precisa esperar **{{NUM}} segundos** antes de poder executar outro comando.",
+  "BANNED_USER": "Você está banido de usar comandos.",
+  "BLACKLISTED_CHANNEL": "**{{USER}}**, este comando está desabilitado neste canal.",
+  "NOT_NSFW_CHANNEL": "Este comando só é permitido em canais NSFW."
+}

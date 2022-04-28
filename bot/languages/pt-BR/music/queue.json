@@ -1,0 +1,7 @@
+{
+  "DESCRIPTION": "Exibe a fila de música atual.",
+  "USAGE": "queue [NumeroDaPagina]",
+  "EMPTY": "Não há nada tocando agora.",
+  "NAN": "A página deve ser um número.",
+  "TOO_HIGH": "Tem apenas {{NUM}} páginas disponíveis"
+}

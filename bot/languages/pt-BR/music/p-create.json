@@ -1,0 +1,14 @@
+{
+  "DESCRIPTION": "Crie uma Playlist e guarde todas suas músicas.",
+  "USAGE": "p-create <nome da playlist> <Nome da musica ou url>",
+  "TOO_LONG": "O título da Playlist deve ter no máximo **32** caracteres!",
+  "WAITING": "Adicionando a(s) musica(s) para sua playlist. Isso pode demorar alguns segundos...",
+  "NO_PREM": "Você precisa ser um **Membro Premium** para poder criar até 3 Playlists, ao em vez de 1.",
+  "MAX_PLAYLISTS": "Você atingiu o limite máximo de Playlists. Máximo: 3",
+  "EXISTS": "Você já tem uma Playlist salva com esse nome.",
+  "DESC_1": "Criou uma Playlist com o nome: **{{TITLE}}**.",
+  "DESC_2": "Tempo de duração da Playlist: {{NUM}}.",
+  "DESC_3": "Adicionado **{{NAME}}** ({{NUM}} musicas) a Playlist **{{TITLE}}**.",
+  "FOOTER": "ID: {{ID}} • Musicas: {{NUM}}/{{PREM}}",
+  "NO_SONG": "Não foi possível encontrar essa musica."
+}

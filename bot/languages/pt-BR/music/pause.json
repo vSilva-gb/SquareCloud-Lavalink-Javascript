@@ -1,0 +1,6 @@
+{
+  "DESCRIPTION": "Pause a música atual.",
+  "USAGE": "pause",
+  "IS_PAUSED": "A música já está pausada, use `{{PREFIX}}resume` para voltar a ouvir.",
+  "SUCCESS": "A musica atual foi pausada."
+}

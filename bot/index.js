@@ -1,23 +1,31 @@
-//Create a discord bot
-const {Client, Intents} = require('discord.js');
-//Create a client with intents
-const client = new Client({
-    //Intents
-    intents: [Intents.FLAGS.GUILDS]
-});
+const { logger } = require('./utils');
+const { AutoPoster} = require('topgg-autoposter');
+const { ShardingManager } = require('discord.js');
 
-//Crie o evento ready
-client.on('ready', () => {
-    console.log('I am ready!');
-    //Crie uma função para usar o status viewing
-    client.user.setActivity('O meu dono me criar novamente... Em breve!', {type: 'WATCHING'});
-});
+(async () => {
 
-//Crie o evento message
-client.on('message', message => {
-    if (message.content.includes['!']) {
-        console.log(message.content)
+    const manager = new ShardingManager('./bot.js', {
+        totalShards: 'auto',
+        token: require('./config.js').token,
+    });
+
+    try {
+    const poster = AutoPoster(require('./config.js').api_keys.topggtoken, manager, {interval: 3.6e+6})
+        poster.once('posted', (stats) => {
+        logger.warn(`Status enviado para top.gg | ${stats.serverCount} servidores atualmente.`)
+    })
+    } catch (error) {
+        logger.error(`Ops, aconteceu um erro ao enviar o status para o TOP.GG: ${error.message}`)
     }
-});
 
-client.login('NjYxNDEwMjk4ODY2OTU4MzM5.XgrAVw.vfFg8n188SeAY_dKXdB4X7d8VDg');
+    logger.warn('Inicializando Shard(s)...')
+    try {
+        await manager.spawn();
+    } catch (err) {
+        logger.error(`Ops, aconteceu um erro ao carregar as shard: ${err.message}`);
+    }
+
+    manager.on('shardCreate', (shard) => {
+        logger.log(`Shard ${shard.id} iniciada.`)
+    })
+})();

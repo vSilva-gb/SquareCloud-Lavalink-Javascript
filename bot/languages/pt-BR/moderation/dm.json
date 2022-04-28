@@ -1,0 +1,6 @@
+{
+  "DESCRIPTION": "Manda uma mensagem privada para um usuaário.",
+  "USAGE": "dm <user> <message>",
+  "TITLE": "DM recebido do servidor: {{NAME}}",
+  "SUCCESS": "DM enviado com sucesso para {{TAG}}."
+}

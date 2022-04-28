@@ -1,0 +1,6 @@
+{
+  "DESCRIPTION": "Comece a ouvir as músicas da sua Playlist.",
+  "USAGE": "p-load <nome da playlist>",
+  "QUEUE": "Foram adicionadas **{{NUM}} musicas** da playlist **{{TITLE}}**.",
+  "NO_PLAYLIST": "Nenhuma Playlist encontrada."
+}

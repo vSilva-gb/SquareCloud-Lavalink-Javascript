@@ -1,0 +1,6 @@
+{
+  "DESCRIPTION": "Loops the song or queue.",
+  "USAGE": "loop [queue / song]",
+  "TRACK": "Repetição da música está {{TOGGLE}}.",
+  "QUEUE": "Repetição da playlist está {{TOGGLE}}."
+}

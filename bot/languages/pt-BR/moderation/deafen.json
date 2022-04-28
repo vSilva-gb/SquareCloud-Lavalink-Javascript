@@ -1,0 +1,6 @@
+{
+  "DESCRIPTION": "Desativa o áudio de um usuário.",
+  "USAGE": "deafen <user> [time]",
+  "NOT_VC": "Eu não posso desativar o áudio de um usuário que não está em um canal de voz.",
+  "SUCCESS": "*O audio de <@{{USER}}> foi desativado.*."
+}
