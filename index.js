@@ -5,15 +5,25 @@ const os = require('os'),
     square = require('squarecloud-status'),
     config = require('./config.json');
 
-let runLava,
-    runNode;
-
-/*if (systemOS !== 'linux') {
+if (systemOS !== 'linux') {
     console.log('This script is only for linux');
     process.exit(1);
-}*/
+}
 
 const run = async () => {
+
+    //apaga a pasta Lavalink e java
+    if (existsSync('./Lavalink')) {
+        console.log('apagado')
+        unlinkSync('./Lavalink');
+    }
+
+    if (existsSync('./Java')) {
+        console.log('apagado')
+        unlinkSync('./Java');
+    }
+    return
+
     //Verifica a ram disponivel da host.
     let ram = 0;
     try {
@@ -28,23 +38,15 @@ const run = async () => {
         console.log('🔴 RAM is less than 512MB. (The minimum recommended is 512MB)');
     }
 
-    //Cria o diretorio Lavalink e Java e verifica se ocorreu algum erro e use console log em cada
-    const pastas = ['./Lavalink', './Java']
-    for await (const pasta of pastas) {
-        if(!existsSync(pasta)) {
-            try {
-                mkdirSync(pasta)
-            } catch(err) {
-                console.log(`🔴 Error creating ${pasta}`);
-                return process.exit(1);
-            }
-        }
-    }
-    console.log('🔵 Folders created');
-
     //baixa o Lavalink do site que esta em config.lavaLink verifica se o status é indiferente de 0 caso seja da um process exit e da um console.log.
     console.log('🔵 Downloading Lavalink...');
-    const downLava = spawnSync("wget", ['-c', '-O', "Lavalink.jar", config.lavalink], {encoding: "utf-8", cwd: "./Lavalink"});
+    //Verifica se já tem a pasta do Lavalink.
+    if (!existsSync('./squareLava/Lavalink')) {
+        mkdirSync('./squareLava/Lavalink');
+    }
+    //Faz o download do lavalink
+    const downLava = spawnSync("wget", ['-c', '-O', "Lavalink.jar", config.lavalink], {encoding: "utf-8", cwd: "./squareLava"});
+    //Se o status for 0, não aconteceu nenhum erro
     if (downLava.status !== 0) {
         console.log('🔴 Lavalink download failed. (Check the console for more information)');
         return process.exit(1);
@@ -53,7 +55,7 @@ const run = async () => {
 
     //baixa o java do site que está em config.javaLink verifica se o status é indiferente de 0 e extraia o arquivo.
     console.log(`🔵 Downloading Java ${config["openJDK"]["version"]}...`);
-    const downJava = spawnSync('wget', [config.openJDK.link, '-O', 'java.tar.gz'], {encoding: 'utf-8', cwd: './Java'});
+    const downJava = spawnSync('wget', [config.openJDK.link, '-O', 'java.tar.gz'], {encoding: 'utf-8', cwd: './squareLava/Java'});
     if (downJava.status !== 0) {
         console.log('🔴 Java download failed. (Check the console for more information)');
         return process.exit(1);
@@ -62,26 +64,29 @@ const run = async () => {
     
     //extrai o java.tar.gz para dentro da pasta java e apague o arquivo comprimido e use console.log para cada etapa.
     console.log('🔵 Extracting Java...');
-    const extractJava = spawnSync('tar', ['-xvzf', 'java.tar.gz'], {encoding: 'utf8', cwd: './Java'});
+    if (!existsSync('./squareLava/Java')) {
+        mkdirSync('./squareLava/Java');
+    }
+    const extractJava = spawnSync('tar', ['-xvzf', 'java.tar.gz'], {encoding: 'utf8', cwd: './squareLava/Java'});
     if (extractJava.status !== 0) {
         console.log('🔴 Java extraction failed. (Check the console for more information)');
         return process.exit(1);
     };
-    console.log('🔵 Java extraction complete');
+    console.log('🟢 Java extraction complete');
 
     //Apague o arquivo do java comprimido e verifique se ocorreu algum erro.
     console.log('🔵 Deleting Java archive...');
-    unlinkSync('./Java/java.tar.gz');
-    if (existsSync('./Java/java.tar.gz')) {
+    unlinkSync('.squareLava/Java/java.tar.gz');
+    if (existsSync('.squareLava/Java/java.tar.gz')) {
         console.log('🔴 Java archive deletion failed. (Check the console for more information)');
         return process.exit(1);
     }
-    console.log('🔵 Java archive deleted');
+    console.log('🟢 Java archive deleted');
 
     //Inicia o lavalink, verifica se ocorreu algum erro e case ocorra o erro 127 apague a pasta do java e mate o processo.
     console.log('🔵 Starting Lavalink...');
-    const urlJava = process.cwd() + `/Java/jdk-${config.openJDK.version}/bin/java`;
-    const startLava = spawn(urlJava, ['-jar', 'Lavalink.jar'], {cwd: './Lavalink'});
+    const urlJava = process.cwd() + `/squareLava/Java/jdk-${config.openJDK.version}/bin/java`;
+    const startLava = spawn(urlJava, ['-jar', 'Lavalink.jar'], {cwd: './squareLava/Lavalink'});
     startLava.stdout.on('data', (data) => {
         console.log(`${data}`);
     });
@@ -94,17 +99,30 @@ const run = async () => {
         //se o erro for 127 apague a pasta do java e mate o processo.
         if (code === 127) {
             console.log('🔴 Lavalink start failed. (Check the console for more information)');
-            unlinkSync('./Java/jdk-16');
-            process.exit(1);
+            unlinkSync('./squareLava/Java/jdk-16');
+            return process.exit(1);
         }
-        console.log('🔵 Lavalink start complete');
+        console.log('🟢 Lavalink has been successfully started.');
     });
 
+    //Delay para esperar o serviço do Lavalink iniciar.
+    await delay(20*1000);
 
+    //Verifica se a existe a pasta bot e verifica se dentro dela existe o arquivo index.js.
+    console.log('🔵 Starting the bot.');
+    if (!existsSync(`./bot/${config["MainFile"]}`)) {
+        console.log('🔴 The main file in config.json was not found.');
+        return process.exit(1);
+    }
+}
 
-
-
-
+//crie uma função que cria um delay com tempo personalizado.
+const delay = (time) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, time);
+    });
 }
 
 run();
