@@ -128,6 +128,7 @@ const run = async () => {
         process.exit(code);
     })
 }
+run();
 
 //crie uma função que cria um delay com tempo personalizado.
 const delay = (time) => {
@@ -136,6 +137,4 @@ const delay = (time) => {
             resolve();
         }, time);
     });
-}
-
-run();
+};
