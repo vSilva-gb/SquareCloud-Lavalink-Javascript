@@ -62,7 +62,7 @@ const run = async () => {
     
     //extrai o java.tar.gz para dentro da pasta java e apague o arquivo comprimido e use console.log para cada etapa.
     console.log('🔵 Extracting Java...');
-    const extractJava = spawn('tar', ['xvzf', 'java.tar.gz'], {encoding: 'utf8', cwd: './Java'});
+    const extractJava = spawn('tar', ['-xvzf', 'java.tar.gz'], {encoding: 'utf8', cwd: './Java'});
     extractJava.on('exit', (code) => {
         if (code !== 0) {
             console.log('🔴 Java extraction failed. (Check the console for more information)');
