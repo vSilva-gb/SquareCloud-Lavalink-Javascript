@@ -53,13 +53,13 @@ const run = async () => {
     downLava.stderr.on('data', (data) => {
         console.log(data);
     });
-    return
     console.log(downLava.status)
     if (downLava.status !== 0) {
         console.log('🔴 Lavalink download failed. (Check the console for more information)');
         return process.exit(1);
     }
     console.log('🟢 Lavalink downloaded.');
+    return;
 
     //baixa o java do site que está em config.javaLink verifica se o status é indiferente de 0 e extraia o arquivo.
     console.log('🔵 Downloading Java...');
