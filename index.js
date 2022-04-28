@@ -44,7 +44,9 @@ const run = async () => {
 
     //baixa o Lavalink do site que esta em config.lavaLink verifica se o status é indiferente de 0 caso seja da um process exit e da um console.log.
     console.log('🔵 Downloading Lavalink...');
-    const downLava = spawn("wget", ['-c', '-O', "Lavalink.jar", config.lavalink], {encoding: "utf-8", cwd: "./Lavalink"});
+    const downLava = spawnSync("wget", ['-c', '-O', "Lavalink.jar", config.lavalink], {encoding: "utf-8", cwd: "./Lavalink"});
+    //imprime o console log do wget
+    console.log(downLava.stdout);
     console.log(downLava.status)
     if (downLava.status !== 0) {
         console.log('🔴 Lavalink download failed. (Check the console for more information)');
