@@ -25,13 +25,14 @@ const run = async () => {
     if (ram < 512) {
         console.log('🔴 RAM is less than 512MB. (The minimum recommended is 512MB)');
     }
+    //Cria a pasta onde todos os arquivos necessárias para o lavalink ficarão.
     mkdirSync('./squareLava', { recursive: true });
 
     //baixa o Lavalink do site que esta em config.lavaLink verifica se o status é indiferente de 0 caso seja da um process exit e da um console.log.
     console.log('🔵 Downloading Lavalink...');
     mkdirSync('./squareLava/Lavalink', { recursive: true });
     //Faz o download do lavalink
-    const downLava = spawnSync("wget", ['-c', '-O', "Lavalink.jar", config.lavalink], {encoding: "utf-8", cwd: "./squareLava"});
+    const downLava = spawnSync("wget", ['-c', '-O', "Lavalink.jar", config.lavalink], {encoding: "utf-8", cwd: "./squareLava/Lavalink"});
     //Se o status for 0, não aconteceu nenhum erro
     if (downLava.status !== 0) {
         console.log('🔴 Lavalink download failed. (Check the console for more information)');
@@ -59,8 +60,8 @@ const run = async () => {
 
     //Apague o arquivo do java comprimido e verifique se ocorreu algum erro.
     console.log('🔵 Deleting Java archive...');
-    unlinkSync('.squareLava/Java/java.tar.gz');
-    if (existsSync('.squareLava/Java/java.tar.gz')) {
+    unlinkSync('./squareLava/Java/java.tar.gz');
+    if (existsSync('./squareLava/Java/java.tar.gz')) {
         console.log('🔴 Java archive deletion failed. (Check the console for more information)');
         return process.exit(1);
     }
