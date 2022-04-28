@@ -52,8 +52,8 @@ const run = async () => {
     console.log('🟢 Lavalink downloaded.');
 
     //baixa o java do site que está em config.javaLink verifica se o status é indiferente de 0 e extraia o arquivo.
-    console.log('🔵 Downloading Java...');
-    const downJava = spawnSync('wget', [config.javaLink, '-O', 'java.tar.gz'], {encoding: 'utf-8', cwd: './Java'});
+    console.log(`🔵 Downloading Java ${config["openJDK"]["version"]}...`);
+    const downJava = spawnSync('wget', [config.openJDK.link, '-O', 'java.tar.gz'], {encoding: 'utf-8', cwd: './Java'});
     if (downJava.status !== 0) {
         console.log('🔴 Java download failed. (Check the console for more information)');
         return process.exit(1);
