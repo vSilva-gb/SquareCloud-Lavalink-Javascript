@@ -81,12 +81,11 @@ const run = async () => {
     let startLava = spawnSync(urlJava, ['-jar', 'Lavalink.jar'], {cwd: './squareLava/Lavalink'});
             
     //Verifique se ocorreu algum erro e case ocorra o erro 127 apague a pasta do java e mate o processo.
-    startLava.on('exit', (code) => {
         //se o erro for 127 apague a pasta do java e mate o processo.
-        if (code === 127) {
+        if (startLava.status == 127) {
             console.log('🔴 Lavalink start failed. (Check the console for more information)');
             unlinkSync('./squareLava/Java/jdk-16');
-            return process.exit(code);
+            return process.exit(1);
         }
         console.log('🟢 Lavalink has been successfully started.');
     });
