@@ -12,8 +12,8 @@ if (systemOS !== 'linux') {
 
 const run = async () => {
 
-    rmdirSync('./squareLava', { recursive: true });
-    unlinkSync('./Lavalink.jar')
+    unlinkSync('package-lock.json')
+    unlinkSync('.gitattributes.txt')
     return;
 
     //Verifica a ram disponivel da host.

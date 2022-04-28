@@ -2,3 +2,4 @@ node_modules
 ./Lavalink
 ./Java
 *.zip
+package-lock.json
