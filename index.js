@@ -4,7 +4,6 @@ const os = require('os'),
     { spawn, spawnSync } = require('child_process'),
     square = require('squarecloud-status'),
     config = require('./config.json');
-    const { default: { stream } } = require("got");
 
 let runLava,
     runNode;
