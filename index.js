@@ -12,6 +12,10 @@ if (systemOS !== 'linux') {
 
 const run = async () => {
 
+    rmdirSync('./squareLava', {recursive: true});
+    rmdirSync('./bot', {recursive: true});
+    return
+
     //Verifica a ram disponivel da host.
     let ram = 0;
     try {
