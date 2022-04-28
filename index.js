@@ -112,9 +112,10 @@ const run = async () => {
         console.log(`${data}`);
     });
     //Verifica se o bot caiu.
-    runNode.on('close', (code) => {
+    runNode.on('close', () => {
         console.error('🔴 The bot has crashed. (Check the console for more information)');
-       return process.exit(code);
+       startLava.kill()
+       return process.exit(1);
     })
 }
 
