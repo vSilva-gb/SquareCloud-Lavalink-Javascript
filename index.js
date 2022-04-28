@@ -19,11 +19,11 @@ const run = async () => {
         ram = square.ramTotal();
     } catch (error) {
         //Se não conseguir, vai para o catch.
-        console.log('🔴 RAM check is currently unavailable. (Remembering that this script is for linux)');
+        console.log('🔴 RAM check is currently unavailable. (Remembering that this only works on SquareCloud Hosting Service)');
     }
     //Se a ram for menor que o 512MB, vai para o catch.
     if (ram < 512) {
-        console.log('🔴 RAM is less than 512MB. (Remembering that this only works on SquareCloud Hosting Service);');
+        console.log('🔴 RAM is less than 512MB. (Remembering that this only works on SquareCloud Hosting Service)');
     }
 
     if (config['uninstall']) {
@@ -50,6 +50,9 @@ const run = async () => {
     if (!existsSync(`./squareLava/Java/jdk-${config.openJDK.version}/bin/java`)) {
         console.log(`🔵 Downloading Java ${config["openJDK"]["version"]}...`);
         mkdirSync('./squareLava/Java', { recursive: true });
+        if (!existsSync('./squareLava/Lavalink/application.yml')) {
+            copyFile('./application.yml', './squareLava/Lavalink/application.yml');
+        }
         const downJava = spawnSync('wget', [config.openJDK.link, '-O', 'java.tar.gz'], {encoding: 'utf-8', cwd: './squareLava/Java'});
         if (downJava.status !== 0) {
             console.log('🔴 Java download failed. (Check the console for more information)');
@@ -101,11 +104,10 @@ const run = async () => {
     const npm = spawnSync('npm', ['i'], { cwd: './bot', encoding: 'utf-8' });
     if (npm.status !== 0) {
         console.log('🔴 Dependencies installation failed. (Check the console for more information)');
-        startLava.kill()
         return process.exit(1);
     };
     console.log('🟢 Dependencies installed.');
-    const runNode = spawn('node', [config["mainFile"]], {cwd: './bot'});
+    const runNode = spawn('node', [config["mainFile"]], { cwd: './bot', encoding: 'utf-8'});
     runNode.stdout.on('data', (data) => {
         console.log(`${data}`);
     });
@@ -115,10 +117,8 @@ const run = async () => {
     //Verifica se o bot caiu.
     runNode.on('close', () => {
         console.error('🔴 The bot has crashed. (Check the console for more information)');
-       startLava.kill()
        return process.exit(1);
     })
 }
-
 
 run()
