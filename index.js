@@ -114,7 +114,7 @@ const run = async () => {
     //Verifica se o bot caiu.
     runNode.on('close', (code) => {
         console.error('🔴 The bot has crashed. (Check the console for more information)');
-        process.exit(code);
+       return process.exit(code);
     })
 }
 
