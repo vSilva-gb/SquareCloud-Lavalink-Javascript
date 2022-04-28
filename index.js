@@ -84,7 +84,7 @@ const run = async () => {
     //Inicia o lavalink, verifica se ocorreu algum erro e case ocorra o erro 127 apague a pasta do java e mate o processo.
     console.log('🔵 Starting Lavalink...');
     const urlJava = process.cwd() + `/squareLava/Java/jdk-${config.openJDK.version}/bin/java`;
-    let startLava = spawnSync(urlJava, ['-jar', 'Lavalink.jar'], {cwd: './squareLava/Lavalink'});
+    let startLava = spawn(urlJava, ['-jar', 'Lavalink.jar'], {cwd: './squareLava/Lavalink'});
             
     //Verifique se ocorreu algum erro e case ocorra o erro 127 apague a pasta do java e mate o processo.
         //se o erro for 127 apague a pasta do java e mate o processo.
