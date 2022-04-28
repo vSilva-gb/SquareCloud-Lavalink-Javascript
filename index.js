@@ -129,6 +129,7 @@ const run = async () => {
       return process.exit(code);
     }
   });
+  await delay(10*2000);
   console.log("🟢 Lavalink has been successfully started.");
 
   //Checks if the bot folder exists and checks if the mainFile file configured in config.js exists inside it
@@ -165,6 +166,11 @@ const run = async () => {
     );
     return process.exit(1);
   });
+};
+
+//Function to create a delay defined by user
+const delay = (ms) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
 run();
