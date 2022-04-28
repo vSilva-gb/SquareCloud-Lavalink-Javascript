@@ -1,3 +1,9 @@
+/**
+ * Code created by Silva
+ * Before making any modification, check if it is really necessary and allowed.
+ * Attention: When making any modification to this code you must give credit.
+ */
+
 //Variables
 const os = require("os"),
   systemOS = os.platform(),

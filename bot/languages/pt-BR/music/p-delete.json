@@ -1,6 +1,0 @@
-{
-  "DESCRIPTION": "Deleta sua playlist.",
-  "USAGE": "p-delete <nome da playlist>",
-  "MISSING": "Nenhuma playlist foi encontrada com o nome: {{TITLE}}.",
-  "SUCCESS": "A playlist **{{TITLE}}** foi deletada."
-}

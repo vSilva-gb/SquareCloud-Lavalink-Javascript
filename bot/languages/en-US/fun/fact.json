@@ -1,5 +1,0 @@
-{
-  "DESCRIPTION": "Receive a random fact.",
-  "USAGE": "fact",
-  "FACT_TITLE": "Random Fact:"
-}

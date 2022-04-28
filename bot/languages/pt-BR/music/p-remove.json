@@ -1,6 +1,0 @@
-{
-  "DESCRIPTION": "Remove uma musica especifica da sua Playlist.",
-  "USAGE": "p-remove <nome da playlist> <posição> [posição]",
-  "SUCCESS": "Sua playlist foi atualizada.",
-  "NO_PLAYLIST": "Nenhuma Playlist encontrada."
-}

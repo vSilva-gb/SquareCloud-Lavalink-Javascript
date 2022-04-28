@@ -1,5 +1,0 @@
-{
-  "DESCRIPTION": "Shows your rank/Level.",
-  "USAGE": "level [username]",
-  "NO_MESSAGES": "You aren't ranked yet. Send some messages first, then try again."
-}

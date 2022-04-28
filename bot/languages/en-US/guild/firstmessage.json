@@ -1,5 +1,0 @@
-{
-  "DESCRIPTION": "Gets the first message from the channel.",
-  "USAGE": "firstmessage [channel]",
-  "JUMP": "❯ Jump"
-}

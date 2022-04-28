@@ -1,5 +1,0 @@
-{
-  "DESCRIPTION": "Sends a link to the privacy policy.",
-  "USAGE": "privacy",
-  "LINK": "[📝 Privacy Policy]({{LINK}})"
-}

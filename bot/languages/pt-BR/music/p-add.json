@@ -1,8 +1,0 @@
-{
-  "DESCRIPTION": "Adicione uma musica a sua Playlist",
-  "USAGE": "p-add <nome da playlist> <Nome da Musica ou url>",
-  "ERROR": "Ocorreu um erro ao pesquisar: `{{ERROR}}`",
-  "NO_PLAYLIST": "Nenhuma Playlist encontrada com o nome: `{{NAME}}`.",
-  "NO_SONG": "Não foi possível encontrar essa musica.",
-  "SUCCESS": "Foram adicionada(s) {{NUM}} nova(s) musica(s) para a Playlist: `{{TITLE}}`."
-}

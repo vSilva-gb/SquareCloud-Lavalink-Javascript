@@ -1,7 +1,0 @@
-{
-  "DESCRIPTION": "Ative e desative os Plugins",
-  "USAGE": "set-plugin <opção>",
-  "ADDED": "Adicionado {{PLUGINS}} aos Plugins do servidor.",
-  "REMOVED": "Removido {{PLUGINS}} dos Plugins do servidor.",
-  "INVALID": "Não é um Plugin suportado."
-}

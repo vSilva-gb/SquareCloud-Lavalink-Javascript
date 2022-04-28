@@ -1,5 +1,0 @@
-{
-  "DESCRIPTION": "Desmuta um usuário.",
-  "USAGE": "unmute <user>",
-  "SUCCESS": "*<@{{USER}}> foi desmutado*."
-}

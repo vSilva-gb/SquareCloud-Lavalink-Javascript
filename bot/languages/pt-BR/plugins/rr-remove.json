@@ -1,6 +1,0 @@
-{
-  "DESCRIPTION": "Desativa um Reaction Role",
-  "USAGE": "reactionroles <LinkDaMensagem>",
-  "INVALID": "O link fornecido é invalido",
-  "SUCCESS": "Reaction Role desativado."
-}

@@ -1,7 +1,0 @@
-{
-    "DESCRIPTION": "Exibe o avatar do usuário.",
-    "USAGE": "avatar [user]",
-    "AVATAR_TITLE": "🖼 Avatar de {{USER}}",
-    "AVATAR_DESCRIPTION": "**Links:**",
-    "NO_BANNER": "**Este usuário não tem um banner.**"
-  }

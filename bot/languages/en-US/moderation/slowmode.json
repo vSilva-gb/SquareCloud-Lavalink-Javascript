@@ -1,5 +1,0 @@
-{
-  "DESCRIPTION": "Activate slowmode on a channel.",
-  "USAGE": "slowmode <time / off>",
-  "SUCCESS": "Slowmode set to **{{TIME}}**."
-}

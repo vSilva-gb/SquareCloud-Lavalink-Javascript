@@ -1,6 +1,0 @@
-{
-  "DESCRIPTION": "Exibe suas playlist(s)",
-  "USAGE": "p-view <nome da playlist>",
-  "NO_PLAYLIST": "Nenhuma Playlist encontrada.",
-  "AVAIABLE": "Suas playlists disponíveis são `{{NAMES}}`."
-}

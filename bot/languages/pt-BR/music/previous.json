@@ -1,4 +1,0 @@
-{
-  "DESCRIPTION": "Exibe as músicas anteriores que já foram reproduzidas.",
-  "USAGE": "previous [NumeroDaPagina]"
-}

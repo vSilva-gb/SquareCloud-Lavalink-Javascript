@@ -1,5 +1,0 @@
-{
-  "DESCRIPTION": "Unmute a user.",
-  "USAGE": "unmute <user>",
-  "SUCCESS": "*<@{{USER}}> was successfully unmuted*."
-}

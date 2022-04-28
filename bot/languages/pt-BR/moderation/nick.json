@@ -1,8 +1,0 @@
-{
-  "DESCRIPTION": "Muda o apelido de um usuário.",
-  "USAGE": "nick <user> <name>",
-  "TOO_POWERFUL": "Não consigo alterar o apelido desse usuário devido o seu cargo ser maior que o meu.",
-  "ENTER_NICKNAME": "Forneça um Apelido.",
-  "LONG_NICKNAME": "O apelido não deve ser maior que 32 caracteres.",
-  "SUCCESS": "*Apelido alterado com sucesso do <@{{USER}}>.*"
-}

@@ -1,16 +1,10 @@
 {
-  "name": "teste",
-  "version": "1.0.0",
-  "description": "",
+  "name": "lavalink-squarecloud-manager",
+  "version": "2.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "vSilva-gb",
+  "license": "MIT",
   "dependencies": {
-    "got": "^12.0.4",
     "squarecloud-status": "^1.2.3"
   }
 }

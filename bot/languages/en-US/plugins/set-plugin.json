@@ -1,7 +1,0 @@
-{
-  "DESCRIPTION": "Toggle plugins on and off",
-  "USAGE": "set-plugin <option>",
-  "ADDED": "Added {{PLUGINS}} to Guild's plugins.",
-  "REMOVED": "Removed {{PLUGINS}} to Guild's plugins.",
-  "INVALID": "Not a supported plugin"
-}
