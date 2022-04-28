@@ -15,12 +15,12 @@ const run = async () => {
     //apaga a pasta Lavalink e java
     if (existsSync('./Lavalink')) {
         console.log('apagado')
-        rmdirSync('./Lavalink');
+        rmdirSync('./Lavalink', { recursive: true, force: true });
     }
 
     if (existsSync('./Java')) {
         console.log('apagado')
-        rmdirSync('./Java');
+        rmdirSync('./Java', { recursive: true, force: true });
     }
     return
 
