@@ -105,7 +105,7 @@ const run = async () => {
         return process.exit(1);
     };
     console.log('🟢 Dependencies installed.');
-    const runNode = spawn('node', [config['mainFile'], { encoding: 'utf-8', cwd: './bot' }]);
+    const runNode = spawn('node', [config["mainFile"]], {cwd: './bot'});
     runNode.stdout.on('data', (data) => {
         console.log(`${data}`);
     });
