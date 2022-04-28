@@ -66,7 +66,7 @@ const run = async () => {
     extractJava.on('exit', (code) => {
         if (code !== 0) {
             console.log('🔴 Java extraction failed. (Check the console for more information)');
-            process.exit(1);
+            return process.exit(1);
         }
         console.log('🔵 Java extraction complete');
     });
@@ -76,7 +76,7 @@ const run = async () => {
     unlinkSync('java.tar.gz');
     if (existsSync('java.tar.gz')) {
         console.log('🔴 Java archive deletion failed. (Check the console for more information)');
-        process.exit(1);
+        return process.exit(1);
     }
     console.log('🔵 Java archive deleted');
 
