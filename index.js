@@ -6,7 +6,6 @@ const os = require("os"),
   square = require("squarecloud-status"),
   config = require("./config.json");
 
-
 //Function to check if the code is running on Linux
 if (systemOS !== "linux") {
   console.log("This script is only for linux");
@@ -129,7 +128,7 @@ const run = async () => {
       return process.exit(code);
     }
   });
-  await delay(10*2000);
+  await delay(10 * 2000);
   console.log("🟢 Lavalink has been successfully started.");
 
   //Checks if the bot folder exists and checks if the mainFile file configured in config.js exists inside it
@@ -170,7 +169,7 @@ const run = async () => {
 
 //Function to create a delay defined by user
 const delay = (ms) => {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
 run();
