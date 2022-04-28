@@ -156,7 +156,7 @@ const run = async () => {
     console.log(`${data}`);
   });
   runNode.stderr.on("data", (data) => {
-    console.log(`${data}`);
+    console.err(`${data}`);
   });
   //Checks if the bot has crashed.
   runNode.on("close", () => {
