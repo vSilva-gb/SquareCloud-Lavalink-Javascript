@@ -45,17 +45,15 @@ const run = async () => {
     //baixa o Lavalink do site que esta em config.lavaLink verifica se o status é indiferente de 0 caso seja da um process exit e da um console.log.
     console.log('🔵 Downloading Lavalink...');
     const downLava = spawnSync("wget", ['-c', '-O', "Lavalink.jar", config.lavalink], {encoding: "utf-8", cwd: "./Lavalink"});
-    console.log(downLava.status)
     if (downLava.status !== 0) {
         console.log('🔴 Lavalink download failed. (Check the console for more information)');
         return process.exit(1);
     }
     console.log('🟢 Lavalink downloaded.');
-    return;
 
     //baixa o java do site que está em config.javaLink verifica se o status é indiferente de 0 e extraia o arquivo.
     console.log('🔵 Downloading Java...');
-    const downJava = spawn('wget', [config.javaLink, '-O', 'java.tar.gz']);
+    const downJava = spawnSync('wget', [config.javaLink, '-O', 'java.tar.gz'], {encoding: 'utf-8', cwd: './Java'});
     if (downJava.status !== 0) {
         console.log('🔴 Java download failed. (Check the console for more information)');
         return process.exit(1);
