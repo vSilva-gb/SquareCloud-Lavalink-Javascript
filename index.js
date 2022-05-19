@@ -141,8 +141,8 @@ const run = async () => {
     console.log(`🔴 Lavalink failed to start. (Error code: ${code})`);
     if (code === 127) {
       rmSync("./squareLava/Java", { recursive: true });
-      return process.exit(code);
     }
+	return process.exit(code);
   });
   await delay(20 * 1000);
   console.log("🟢 Lavalink has been successfully started.");
