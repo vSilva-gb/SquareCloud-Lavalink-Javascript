@@ -5,6 +5,6 @@
   "author": "vSilva-gb",
   "license": "MIT",
   "dependencies": {
-    "squarecloud-status": "^1.2.3"
+    "@squarecloud/status": "^1.0.1"
   }
 }

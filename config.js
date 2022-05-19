@@ -9,7 +9,7 @@ const config = {
     "mainFile": 'index.js',
 
     //Boolean true or false.
-    "lavalinklogs": true,
+    "lavalinklogs": false,
 
     //Boolean true or false.
     "uninstall": false,

@@ -9,7 +9,7 @@ const os = require("os"),
   systemOS = os.platform(),
   { mkdirSync, existsSync, unlinkSync, copyFile, rmSync } = require("fs"),
   { spawn, spawnSync } = require("child_process"),
-  square = require("squarecloud-status"),
+  { ramTotal } = require("@squarecloud/status"),
   config = require("./config.js");
 
 //Function to check if the code is running on Linux
@@ -23,7 +23,7 @@ const run = async () => {
   //Try to check the plan's available RAM.
   let ram = 0;
   try {
-    ram = square.ramTotal();
+    ram = ramTotal();
   } catch (error) {
     //If error, go to catch.
     console.log(
