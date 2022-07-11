@@ -7,6 +7,7 @@
 //Variables
 const os = require("os"),
   systemOS = os.platform(),
+  { setup } = require('easyjdk11'),
   { mkdirSync, existsSync, unlinkSync, copyFile, rmSync } = require("fs"),
   { spawn, spawnSync } = require("child_process"),
   { ramTotal } = require("@squarecloud/status"),
@@ -64,65 +65,14 @@ const run = async () => {
     console.log("🟢 Lavalink downloaded.");
   }
 
-  //downloads Lavalink from the site that is in config.openJDK.link checks if the status is indifferent to 0 (greater than 0 is an error) if there is a process exit and notify the user with a log
-  if (!existsSync(`./squareLava/Java/jdk-${config.openJDK.version}/bin/java`)) {
-    console.log(`🔵 Downloading Java ${config["openJDK"]["version"]}...`);
-    mkdirSync("./squareLava/Java", { recursive: true });
-    //Checks if application.yml is already set correctly
-    if (!existsSync("./squareLava/Lavalink/application.yml")) {
-      //If not, copy what is in the root to the Lavalink folder
-      copyFile(
-        "./application.yml",
-        "./squareLava/Lavalink/application.yml",
-        (err) => {
-          if (err) console.error(err);
-          return process.exit(1);
-        }
-      );
-    }
-    //Function to download Java.
-    const downJava = spawnSync(
-      "wget",
-      [config.openJDK.link, "-O", "java.tar.gz"],
-      { encoding: "utf-8", cwd: "./squareLava/Java" }
-    );
-    if (downJava.status !== 0) {
-      console.log(
-        "🔴 Java download failed. (Check the console for more information)"
-      );
-      return process.exit(downJava.status);
-    }
-    console.log("🟢 Java downloaded.\n🔵 Extracting Java...");
-
-    //The java comes zipped, extract the java.tar.gz into the java folder and delete the compressed file and use console.log for each step.
-    const extractJava = spawnSync("tar", ["-xvzf", "java.tar.gz"], {
-      encoding: "utf8",
-      cwd: "./squareLava/Java",
-    });
-    if (extractJava.status !== 0) {
-      console.log(
-        "🔴 Java extraction failed. (Check the console for more information)"
-      );
-      return process.exit(extractJava.status);
-    }
-    console.log("🟢 Java extraction complete");
-
-    //Delete the compressed java file and check if any errors occurred.
-    console.log("🔵 Deleting Java archive...");
-    unlinkSync("./squareLava/Java/java.tar.gz");
-    if (existsSync("./squareLava/Java/java.tar.gz")) {
-      console.log(
-        "🔴 Java archive deletion failed. (Check the console for more information)"
-      );
-      return process.exit(1);
-    }
-    console.log("🟢 Java archive deleted");
-  }
+  await setup().then(() => {
+    console.log("🟢 jdk11 setup completed.");
+  });
 
   //Start lavalink, check if there was an error and if error 127 occurs, delete the java folder and kill the process.
   console.log("🔵 Starting Lavalink...");
   const urlJava =
-    process.cwd() + `/squareLava/Java/jdk-${config.openJDK.version}/bin/java`;
+    process.cwd() + `/jdk/binaries/java`;
   const startLava = spawn(urlJava, ["-jar", "Lavalink.jar"], {
     cwd: "./squareLava/Lavalink",
   });
