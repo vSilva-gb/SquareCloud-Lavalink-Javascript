@@ -1,5 +1,7 @@
 <a href="">Click here to EN-US</a>
 
+<h2>!!Descontinuado!! Atualmente a SquareCloud já tem suporte a Lavalink nativamente.</h2>
+
 <h2>Estrutura Javascript para Lavalink da <a href="https://squarecloud.app">Square Cloud</a></h2>
 
 <h2>Fazendo as alterações no config.json</h2>
